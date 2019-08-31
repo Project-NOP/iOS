@@ -22,23 +22,16 @@ struct BrandAddViewModel: BrandAddViewBindable {
     
     init() {
         let brands = viewDidLoad
-            .map { _ -> [Brand] in
-                [Brand.sample, Brand.sample, Brand.sample, Brand.sample, Brand.sample,
-                 Brand.sample, Brand.sample, Brand.sample, Brand.sample, Brand.sample,
-                 Brand.sample, Brand.sample, Brand.sample, Brand.sample, Brand.sample,
-                 Brand.sample, Brand.sample, Brand.sample, Brand.sample, Brand.sample]
-            }
+            .map { _ in BrandDummy().all }
             .share()
         
         self.brands = Observable<[Brand]>
             .combineLatest(brands, searchKeyword.startWith("")) { brands, keyword -> [Brand] in
-//                brands.filter { $0.name.contains(keyword) }
-                return brands
+                brands
             }
             .asDriver(onErrorDriveWith: .empty())
         
         self.dismiss = selectedBrands
-            .debug("xxx: selected")
             .map { _ in Void() }
             .asSignal(onErrorSignalWith: .empty())
     }

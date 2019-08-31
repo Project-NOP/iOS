@@ -46,6 +46,10 @@ class CodeView: View<EmptyViewBindable>, AVCaptureMetadataOutputObjectsDelegate 
         bringSubviewToFront(codeFrameView)
     }
     
+    func stop() {
+        captureSession.stopRunning()
+    }
+    
     func setCaptureSessionInputOutput() throws {
         let session = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: .video, position: .back)
         

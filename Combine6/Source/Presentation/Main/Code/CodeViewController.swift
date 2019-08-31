@@ -18,6 +18,10 @@ protocol CodeViewBindable {
     var popupViewModel: CodePopupViewModel { get }
     var scannedCode: PublishRelay<String> { get }
     
+    var isScanning: Signal<Bool> { get }
+    var viewDidAppear: PublishRelay<Void> { get }
+    var viewDidDisappear: PublishRelay<Void> { get }
+    
     var present: Driver<Presentable> { get }
 }
 
@@ -35,7 +39,17 @@ class CodeViewController: ViewController<CodeViewBindable> {
             .drive(self.rx.present)
             .disposed(by: disposeBag)
         
+        viewModel.isScanning
+            .emit(onNext: { [weak self] isScanning in
+                isScanning ? self?.codeView.start() : self?.codeView.stop()
+            })
+            .disposed(by: disposeBag)
+        
         codeView.currentCode
+            .throttle(1, scheduler: MainScheduler.instance)
+            .do(onNext: { [weak codeView] _ in
+                codeView?.stop()
+            })
             .bind(to: viewModel.scannedCode)
             .disposed(by: disposeBag)
         
@@ -44,6 +58,14 @@ class CodeViewController: ViewController<CodeViewBindable> {
                 RxKeyboard.instance.visibleHeight.asObservable()
             }
             .bind(to: self.rx.setKeyboardHeight)
+            .disposed(by: disposeBag)
+        
+        self.rx.viewDidAppear.map { _ in Void() }
+            .bind(to: viewModel.viewDidAppear)
+            .disposed(by: disposeBag)
+        
+        self.rx.viewDidDisappear.map { _ in Void() }
+            .bind(to: viewModel.viewDidDisappear)
             .disposed(by: disposeBag)
     }
     
@@ -75,12 +97,6 @@ class CodeViewController: ViewController<CodeViewBindable> {
             $0.left.right.top.equalTo(popupView)
             $0.bottom.equalToSuperview()
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        codeView.start()
     }
 }
 

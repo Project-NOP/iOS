@@ -53,13 +53,11 @@ class BrandTableCell: UITableViewCell {
         titleLabel.snp.makeConstraints {
             $0.left.equalTo(logoImageView.snp.right).offset(12)
             $0.bottom.equalTo(self.snp.centerY).offset(-2)
-            $0.right.equalToSuperview().offset(-26)
         }
         
         descriptionLabel.snp.makeConstraints {
             $0.left.equalTo(logoImageView.snp.right).offset(12)
             $0.top.equalTo(self.snp.centerY).offset(2)
-            $0.right.equalToSuperview().offset(-26)
         }
     }
     

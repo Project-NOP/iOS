@@ -11,6 +11,10 @@ import RxSwift
 import RxCocoa
 
 struct CodeViewModel: CodeViewBindable {
+    let isScanning: Signal<Bool>
+    let viewDidAppear = PublishRelay<Void>()
+    let viewDidDisappear = PublishRelay<Void>()
+    
     let present: Driver<Presentable>
     
     let popupViewModel = CodePopupViewModel()
@@ -24,25 +28,32 @@ struct CodeViewModel: CodeViewBindable {
             )
         
         let selectedBrand = currentCode
-            .map { code in
-                Product(name: "제품", imageURL: URL(string: "https://")!)
-            }
+//            여기에 바코드를 입력해주세요
+//            .filter { $0 == "" }
+            .map { _ in ProductDummy().ionTheFit }
         
         let alertViewModel = selectedBrand
             .map { CodeProductAlertViewModel(product: $0) }
             .share()
         
+        let presentAlertView = alertViewModel
+            .map(PresentableView.codeProductAlertView)
+        
         let presentResultView = alertViewModel
             .flatMapLatest { $0.confirm }
-            .map { PresentableView.web(URL(string: "https://www.naver.com")!, true) }
+            .map { PresentableView.placeholderView }
         
         self.present = Observable<PresentableView>
-            .merge(
-                alertViewModel.map(PresentableView.codeProductAlertView),
-                presentResultView
-            )
+            .merge(presentAlertView, presentResultView)
             .map { $0.asPresentable }
             .asDriver(onErrorDriveWith: .empty())
         
+        self.isScanning = Observable
+            .merge(
+                viewDidAppear.map { _ in true },
+                viewDidDisappear.map { _ in false },
+                alertViewModel.flatMapLatest { $0.viewDidDisappear }.map { _ in true }
+            )
+            .asSignal(onErrorSignalWith: .empty())
     }
 }

@@ -54,7 +54,7 @@ class CodeProductAlertViewController: ViewController<CodeProductAlertViewBindabl
     override func bind(_ viewModel: CodeProductAlertViewBindable) {
         self.disposeBag = DisposeBag()
         
-        productImageView.kf.setImage(with: viewModel.product.imageURL)
+        productImageView.kf.setImage(with: viewModel.product.imageURL, placeholder: #imageLiteral(resourceName: "logo_splash"))
         
         viewModel.dismiss
             .emit(onNext: { [weak self] _ in
@@ -84,10 +84,6 @@ class CodeProductAlertViewController: ViewController<CodeProductAlertViewBindabl
         contentView.do {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 28
-        }
-        
-        productImageView.do {
-            $0.image = #imageLiteral(resourceName: "logo_splash")
         }
         
         suggestionTitleLabel.do {

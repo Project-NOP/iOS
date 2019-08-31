@@ -37,6 +37,10 @@ class BrandSelectableTableCell: BrandTableCell {
             $0.clipsToBounds = true
         }
         
+        descriptionLabel.do {
+            $0.adjustsFontSizeToFitWidth = true
+        }
+        
         selectButton.rx.tap
             .bind(onNext: { [weak selectButton] _ in
                 selectButton?.isSelected.toggle()
@@ -50,9 +54,14 @@ class BrandSelectableTableCell: BrandTableCell {
         
         selectButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.right.equalToSuperview().offset(-26)
+            $0.right.equalToSuperview().offset(-16)
             $0.width.equalTo(90)
             $0.height.equalTo(36)
+        }
+        selectButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
+        descriptionLabel.snp.makeConstraints {
+            $0.right.equalTo(selectButton.snp.left).offset(-4)
         }
     }
 }

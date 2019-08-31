@@ -21,17 +21,12 @@ struct BrandListViewModel: BrandListViewBindable {
     
     init() {
         let brands = viewDidLoad
-            .map { _ -> [Brand] in
-                [Brand.sample, Brand.sample, Brand.sample, Brand.sample, Brand.sample,
-                 Brand.sample, Brand.sample, Brand.sample, Brand.sample, Brand.sample,
-                 Brand.sample, Brand.sample, Brand.sample, Brand.sample, Brand.sample]
-            }
+            .map { _ in BrandDummy().japan }
             .share()
         
         self.brands = Observable<[Brand]>
             .combineLatest(brands, searchKeyword.startWith("")) { brands, keyword -> [Brand] in
-                return brands
-//                brands.filter { keyword.contains($0.name) }
+                brands
             }
             .asDriver(onErrorDriveWith: .empty())
         

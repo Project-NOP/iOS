@@ -14,9 +14,3 @@ struct Brand {
     let imageURL: URL
 }
 
-extension Brand: Codable {
-    static var sample: Brand {
-        return Brand(name: "애플", description: "전자제품", imageURL: URL(string: "https://")!)
-    }
-}
-

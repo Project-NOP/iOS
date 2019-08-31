@@ -29,7 +29,7 @@ class BrandFooterView: View<EmptyViewBindable> {
         }
         
         actionButton.do {
-            $0.setTitleColor(.gray185, for: .normal)
+            $0.setTitleColor(.gray64, for: .normal)
         }
     }
     

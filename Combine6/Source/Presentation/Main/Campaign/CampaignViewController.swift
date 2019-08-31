@@ -43,7 +43,7 @@ class CampaignViewController: ViewController<EmptyViewBindable> {
         }
         
         webView.do {
-            let url = URL(string: "http://172.20.199.240:3000/campaign")!
+            let url = URL(string: "http://planbnb-deploy-s3.s3-website.ap-northeast-2.amazonaws.com/campaign")!
             $0.load(URLRequest(url: url))
         }
     }

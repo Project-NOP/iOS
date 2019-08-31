@@ -22,6 +22,7 @@ enum PresentableView: Presentable {
     case web(URL, Bool)
     case brandList(BrandListViewBindable)
     case codeProductAlertView(CodeProductAlertViewBindable)
+    case placeholderView
     
     var asViewController: UIViewController {
         switch self {
@@ -41,6 +42,9 @@ enum PresentableView: Presentable {
             return CodeProductAlertViewController().then {
                 $0.bind(viewModel)
             }
+        case .placeholderView:
+            let viewController = PlaceholderViewController()
+            return UINavigationController(rootViewController: viewController)
         }
     }
 }

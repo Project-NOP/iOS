@@ -22,6 +22,8 @@
 		C92125ED231AC544004551E1 /* CodeProductAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92125EC231AC544004551E1 /* CodeProductAlertViewController.swift */; };
 		C92125EF231AC60A004551E1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92125EE231AC60A004551E1 /* Product.swift */; };
 		C926DBD4231AE6F200C4BDDB /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C926DBD3231AE6F200C4BDDB /* TokenHelper.swift */; };
+		C92BC9DB231AF3D400E6B95D /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BC9DA231AF3D400E6B95D /* Dummy.swift */; };
+		C92BC9DD231B005B00E6B95D /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BC9DC231B005B00E6B95D /* PlaceholderViewController.swift */; };
 		C9474F042319115D009BDB5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9474F032319115D009BDB5C /* GoogleService-Info.plist */; };
 		C9474F0723191270009BDB5C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9474F0623191270009BDB5C /* SignInViewController.swift */; };
 		C9474F09231916B8009BDB5C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9474F08231916B8009BDB5C /* UIView.swift */; };
@@ -102,6 +104,8 @@
 		C92125EC231AC544004551E1 /* CodeProductAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeProductAlertViewController.swift; sourceTree = "<group>"; };
 		C92125EE231AC60A004551E1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C926DBD3231AE6F200C4BDDB /* TokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
+		C92BC9DA231AF3D400E6B95D /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
+		C92BC9DC231B005B00E6B95D /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		C9474F022319110D009BDB5C /* Combine6.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Combine6.entitlements; sourceTree = "<group>"; };
 		C9474F032319115D009BDB5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9474F0623191270009BDB5C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				C92125EA231AC397004551E1 /* ProductViewController.swift */,
+				C92BC9DC231B005B00E6B95D /* PlaceholderViewController.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A233952311380A00CF9565 /* AppDelegate.swift */,
+				C92BC9DA231AF3D400E6B95D /* Dummy.swift */,
 				C97C75562319BA960082C6EC /* Entity */,
 				C97C7584231A645D0082C6EC /* API */,
 				C9A54D58231936030026F569 /* Repository */,
@@ -768,6 +774,7 @@
 				C97C75552319BA340082C6EC /* UserHelper.swift in Sources */,
 				C97C75582319BAA30082C6EC /* User.swift in Sources */,
 				C9ECAE56231186E90058898E /* Event.swift in Sources */,
+				C92BC9DD231B005B00E6B95D /* PlaceholderViewController.swift in Sources */,
 				C97C7588231A64FA0082C6EC /* SignInAPI.swift in Sources */,
 				C9A233BC231139EC00CF9565 /* EmptyViewBindable.swift in Sources */,
 				C9E17D6B2319529800577901 /* RootWindowState.swift in Sources */,
@@ -808,6 +815,7 @@
 				C97C756A2319D3AF0082C6EC /* CodePopupView.swift in Sources */,
 				C97C756D2319DE980082C6EC /* CodePopupViewModel.swift in Sources */,
 				C97C754723198DFC0082C6EC /* UIColor.swift in Sources */,
+				C92BC9DB231AF3D400E6B95D /* Dummy.swift in Sources */,
 				C9A233962311380A00CF9565 /* AppDelegate.swift in Sources */,
 				C9ECAE47231181B20058898E /* Extension+Presentable.swift in Sources */,
 				C92125E9231AC387004551E1 /* BrandViewController.swift in Sources */,
