@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>305551552795-hv8llfj30iomiecph4tq1bcb3v086779.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.305551552795-hv8llfj30iomiecph4tq1bcb3v086779</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBpNj1eA7cEV-IzL3C95yZAvz4y5ehkGgc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>305551552795</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>woollim.Combine6</string>
+	<key>PROJECT_ID</key>
+	<string>combine-6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>combine-6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:305551552795:ios:7cedf7aedefe98a8</string>
+	<key>DATABASE_URL</key>
+	<string>https://combine-6.firebaseio.com</string>
+</dict>
+</plist>
